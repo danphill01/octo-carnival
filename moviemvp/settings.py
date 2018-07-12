@@ -87,7 +87,7 @@ DATABASES = {
         #whatever values you CREATED here
         'NAME': 'movielist', 
         'USER': 'movielist',
-        'PASSWORD': 'ocAW&N1qEo!UD8xU',
+        'PASSWORD': 'yLu96vk7myv3ftoJ',
         'HOST': 'localhost',
         'PORT': '',
     }
