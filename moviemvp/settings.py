@@ -25,9 +25,10 @@ else:
     SECRET_KEY = 'insecure-key-for-dev'
     ALLOWED_HOSTS = []
 
-OMDB_KEY = os.environ['OMDB_API_KEY']
-if OMDB_KEY:
-    omdb.set_default('apikey', OMDB_KEY)
+try:
+    omdb.set_default('apikey', os.environ['OMDB_API_KEY'])
+except KeyError:
+    pass
 
 # Application definition
 
