@@ -13,10 +13,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 import omdb
 
-from hidden import API_KEY
-
-omdb.set_default('apikey', API_KEY)
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -24,12 +20,14 @@ if 'DJANGO_DEBUG_FALSE' in os.environ:
     DEBUG = False
     SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
     ALLOWED_HOSTS = [os.environ['SITENAME']]
+    OMDB_KEY = os.environ['OMDB_API_KEY']
 else:
     DEBUG = True
     SECRET_KEY = 'insecure-key-for-dev'
     ALLOWED_HOSTS = []
+    OMDB_KEY = os.environ['OMDB_API_KEY']
 
-omdb.set_default('apikey', os.environ['OMDB_API_KEY'])
+omdb.set_default('apikey', OMDB_KEY)
 
 # Application definition
 
