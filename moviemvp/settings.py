@@ -20,14 +20,14 @@ if 'DJANGO_DEBUG_FALSE' in os.environ:
     DEBUG = False
     SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
     ALLOWED_HOSTS = [os.environ['SITENAME']]
-    OMDB_KEY = os.environ['OMDB_API_KEY']
 else:
     DEBUG = True
     SECRET_KEY = 'insecure-key-for-dev'
     ALLOWED_HOSTS = []
-    OMDB_KEY = os.environ['OMDB_API_KEY']
 
-omdb.set_default('apikey', OMDB_KEY)
+OMDB_KEY = os.environ['OMDB_API_KEY']
+if OMDB_KEY:
+    omdb.set_default('apikey', OMDB_KEY)
 
 # Application definition
 
